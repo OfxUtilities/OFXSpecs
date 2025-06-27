@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>OpenExchange Message Set Specification</title>
+	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
+	<meta name="author" content="Jeffrey Bray"/>
+	<meta name="created" content="2006-04-21T16:59:00"/>
+	<meta name="changedby" content="Intuit"/>
+	<meta name="changed" content="2006-05-10T23:08:00"/>
+	<meta name="classification" content="Working Draft 1"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin-left: 1.25in; margin-right: 1.25in; margin-top: 0.5in; margin-bottom: 0.5in }
+		p { color: #000000; orphans: 2; widows: 2; margin-top: 0.14in; margin-bottom: 0.08in; direction: ltr; background: transparent }
+		p.western { font-family: "Times New Roman", serif; font-size: 10pt; so-language: en-US }
+		p.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+		p.ctl { font-family: "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+		h1 { color: #000000; orphans: 2; widows: 2; margin-top: 0.14in; margin-bottom: 0.04in; direction: ltr; background: transparent; page-break-before: always; page-break-after: avoid }
+		h1.western { font-family: "Arial", sans-serif; font-size: 24pt; so-language: en-US; font-weight: bold }
+		h1.cjk { font-family: "Times New Roman", serif; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Arial", sans-serif; font-size: 10pt; so-language: ar-SA }
+	</style>
+</head>
+<body lang="en-US" text="#000000" link="#000080" vlink="#800000" dir="ltr">
+<div title="header"><p style="margin-top: 0in; margin-bottom: 0in">		</p>
+	<p style="margin-top: 0in; margin-bottom: 0.46in"><br/>
+
+	</p>
+</div><p align="center" style="margin-bottom: 0.14in"><font face="Arial, sans-serif"><font size="6" style="font-size: 24pt"><b>Open
+Financial Exchange<br/>
+Specification 1.0.3</b></font></font></p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><b>May
+1, 2006</b></font></p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><b>©
+2006 CheckFree Corp., Intuit Inc., Microsoft Corp.  All rights
+reserved</b></font></p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><font size="4" style="font-size: 16pt"><i><b>Appendix</b></i></font></font></p>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; page-break-before: always">
+<br/>
+
+</p>
+<p style="margin-bottom: 0.14in; page-break-before: always"><font face="Arial, sans-serif"><font size="5" style="font-size: 18pt"><b>Contents</b></font></font></p>
+<div id="Table of Contents1" dir="ltr"><p style="text-transform: uppercase; margin-top: 0.08in">
+	<b><span lang="en-US">A. Status Codes	</span></b></p>
+</div>
+<p lang="en-US" style="margin-bottom: 0.14in"><br/>
+<br/>
+
+</p>
+<p class="western" style="margin-bottom: 0in; page-break-before: always"><a name="_Ref373293001"></a>
+<br/>
+
+</p>
+<h1 class="western">A. Status Codes</h1>
+<p class="western">The following table provides a complete list of
+the status codes that can be returned by a server. For each status
+code, the table includes the following information:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">Number of the status code</p></li>
+	<li><p style="margin-bottom: 0in">Meaning of the status code</p></li>
+	<li><p style="margin-bottom: 0in">Conditions under which a server
+	must return the status code</p></li>
+</ul>
+<p class="western"><br/>
+<br/>
+
+</p>
+<dl><dd>
+	<table width="492" cellpadding="7" cellspacing="0">
+		<colgroup>
+			<col width="69"/>
+		</colgroup>
+		<colgroup>
+			<col width="124"/>
+			<col width="255"/>
+		</colgroup>
+		<thead>
+			<tr valign="top">
+				<td width="69" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Code</i></font></font></p>
+				</td>
+				<td width="124" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: none; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Meaning</i></font></font></p>
+				</td>
+				<td width="255" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Condition</i></font></font></p>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<td width="69" style="border-top: 1px solid #000000; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">0</font></font></p>
+				</td>
+				<td width="124" style="border-top: 1px solid #000000; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">OK
+					(INFO)</font></font></p>
+				</td>
+				<td width="255" style="border-top: 1px solid #000000; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					server successfully processed the request.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Client
+					is up-to-date (INFO)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Based
+					on the client timestamp, the client has the latest information.
+					The response does not supply any additional information.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2000</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">General
+					error (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Error
+					other than those specified by the remaining error codes.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2001</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+					account (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<br/>
+
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2002</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">General
+					account error (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Account
+					error not specified by the remaining error codes.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2003</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Account
+					not found (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number does not correspond to one of the
+					user’s accounts.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2004</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Account
+					closed (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number corresponds to an account that has been
+					closed.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2005</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Account
+					not authorized (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					user is not authorized to perform this action on the account, or
+					the server does not allow this type of action to be performed on
+					the account. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2006</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Source
+					account not found (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number does not correspond to one of the
+					user’s accounts.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2007</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Source
+					account closed (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number corresponds to an account that has been
+					closed.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2008</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Source
+					account not authorized (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					user is not authorized to perform this action on the account, or
+					the server does not allow this type of action to be performed on
+					the account. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2009</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Destination
+					account not found (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number does not correspond to one of the
+					user’s accounts.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2010</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Destination
+					account closed (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					specified account number corresponds to an account that has been
+					closed.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2011</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Destination
+					account not authorized (ERROR)</font></font></p>
+				</td>
+				<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					user is not authorized to perform this action on the account, or
+					the server does not allow this type of action to be performed on
+					the account. </font></font>
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</dd></dl>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<dl><dd>
+	<table width="492" cellpadding="7" cellspacing="0">
+		<col width="69"/>
+		<col width="124"/>
+		<col width="255"/>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2012</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				amount (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified amount is not valid for this action; for example, the
+				user specified a negative payment amount.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2014</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Date
+				too soon (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server cannot process the requested action by the date specified
+				by the user.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2015</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Date
+				too far in future (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server cannot accept requests for an action that far in the
+				future. </font></font>
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2016</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Already
+				committed (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				transaction cannot be canceled or modified because it has already
+				been committed for processing.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2017</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Already
+				canceled (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				transaction cannot be canceled or modified because it has already
+				been canceled.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2018</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unknown
+				server ID (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified server ID does not exist or no longer exists.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2019</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Duplicate
+				request (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">A
+				request with this &lt;TRNUID&gt; has already been received and
+				processed.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2020</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				date (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified datetime stamp cannot be parsed; for instance, the
+				datetime stamp specifies 25:00 hours.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2021</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unsupported
+				version (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support the requested version.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2022</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				TAN (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server was unable to validate the TAN sent in the request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">3000</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Authentication
+				Required (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				credentials are correct, but further authentication required. 
+				Client should send &lt;MFACHALLENGERQ&gt;.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">3001</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Authentication
+				error (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;MFACHALLENGEA&gt;
+				contains invalid information. </font></font>
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10000</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Stop
+				check in process (INFO)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Stop
+				check is already in process.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10500</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Too
+				many checks to process (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				stop-payment request &lt;STPCHKRQ&gt; specifies too many checks.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10501</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payee
+				error not specified by the remaining error codes.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10502</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee address (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Some
+				portion of the payee’s address is incorrect or unknown. </font></font>
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10503</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee account number (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				account number &lt;PAYACCT&gt; of the requested payee is invalid.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10504</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Insufficient
+				funds (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server cannot process the request because the specified account
+				does not have enough funds.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10505</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Cannot
+				modify element (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not allow modifications to one or more values in a
+				modification request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10506</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Cannot
+				modify source account (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Reserved
+				for future use.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10507</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Cannot
+				modify destination account (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Reserved
+				for future use.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10508</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				frequency (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified frequency &lt;FREQ&gt; does not match one of the
+				accepted frequencies for recurring transactions.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10509</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Model
+				already canceled (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server has already canceled the specified recurring model.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10510</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee ID (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified payee ID does not exist or no longer exists.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10511</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee city (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified city is incorrect or unknown.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10512</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee state (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified state is incorrect or unknown.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10513</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee postal code (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified postal code is incorrect or unknown.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10514</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Bank
+				payment already processed (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server has already processed the bank payment.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10515</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payee
+				not modifiable by client (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not allow clients to change payee information.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10516</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Wire
+				beneficiary invalid (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified wire beneficiary does not exist or no longer exists.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10517</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee name (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not recognize the specified payee name.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10518</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unknown
+				model ID (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified model ID does not exist or no longer exists.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10519</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				payee list ID (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				specified payee list ID does not exist or no longer exists.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12250</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+				transaction download not supported (WARN)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support investment transaction download.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12251</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+				position download not supported (WARN)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support investment position download.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12252</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+				positions for specified date not available (WARN)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support investment positions for the specified
+				date.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12253</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+				open order download not supported (WARN)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support open order download.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12254</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+				balances download not supported (WARN)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support investment balances download.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12500</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">One
+				or more securities not found (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server could not find the requested securities.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13000</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				ID &amp; password will be sent out-of-band (INFO)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server will send the user ID and password via postal mail,
+				e-mail, or another means. The accompanying message will provide
+				details.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13500</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unable
+				to enroll user (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server could not enroll the user.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13501</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				already enrolled (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server has already enrolled the user.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13502</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				service (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support the service &lt;SVC&gt; specified in the
+				service-activation request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13503</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Cannot
+				change user information (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support the &lt;CHGUSERINFORQ&gt; request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15000</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Must
+				change USERPASS (INFO)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				user must change his or her USERPASS number as part of the next
+				OFX request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15500</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Signon
+				(for example, user ID or password) invalid (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				user cannot signon because he or she entered an invalid user ID
+				or password.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15501</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Customer
+				account already in use (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server allows only one connection at a time, and another user is
+				already signed on. Please try again later.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15502</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">USERPASS
+				lockout (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server has received too many failed signon attempts for this
+				user. Please call the FI’s technical support number.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15503</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Could
+				not change USERPASS (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not support the &lt;PINCHRQ&gt; request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15504</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Could
+				not provide random data (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server could not generate random data as requested by the
+				CHALLENGERQ.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15510</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				must register CLIENTUID (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">CLIENTUID
+				error.  User must register CLIENTUID.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15511</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				contact required (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				should contact financial institution</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15512</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">OFX
+				Server requires AUTHTOKEN in signon during the next session.
+				(ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+				needs to contact financial institution to obtain AUTHTOKEN.
+				Client should send it in the next request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">15513</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">AUTHTOKEN
+				error (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">AUTHTOKEN
+				invalid.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">16500</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">HTML
+				not allowed (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server does not accept HTML formatting in the request.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">16501</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unknown
+				mail To: (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server was unable to send mail to the specified Internet address.
+				</font></font>
+				</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">16502</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Invalid
+				URL (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server could not parse the URL.</font></font></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="69" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">16503</font></font></p>
+			</td>
+			<td width="124" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Unable
+				to get URL (ERROR)</font></font></p>
+			</td>
+			<td width="255" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+				<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+				server was unable to retrieve the information at this URL (e.g.,
+				an HTTP 400 or 500 series error).</font></font></p>
+			</td>
+		</tr>
+	</table>
+</dd></dl>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<div title="footer"><p lang="en-US" style="margin-top: 0.46in; margin-bottom: 0in">
+	<span id="Frame1" dir="ltr" style="position: absolute; top: 0.1in; left: 0in; width: 0.08in; border: none; padding: 0in; background: #ffffff"><p style="margin-bottom: 0in">
+		<span style="background: #c0c0c0"><sdfield type=PAGE subtype=RANDOM format=PAGE>329</sdfield></span></p>
+	</span>
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkoAAAABCAYAAAAhI4EfAAAAHklEQVRIie3BQQEAMAgAoTPX7J/L9zoAU231AgDgc1HVAHnFxHABAAAAAElFTkSuQmCC" name="DrawObject1" alt="DrawObject1" align="left" hspace="12" width="586" height="1"/>
+<br/>
+
+	</p>
+	<p style="margin-top: 0in; margin-bottom: 0in"><font size="1" style="font-size: 8pt">Open
+	Financial Exchange Specification 1.0.3		5/1/06</font></p>
+	<p style="margin-top: 0in; margin-bottom: 0in">		</p>
+</div>
+</body>
+</html>

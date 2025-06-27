@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>OpenExchange Message Set Specification</title>
+	<meta name="generator" content="LibreOffice 24.8.1.2 (Linux)"/>
+	<meta name="author" content="Jeffrey Bray"/>
+	<meta name="created" content="2006-05-10T19:25:00"/>
+	<meta name="changedby" content="DuBois, Wendy"/>
+	<meta name="changed" content="2010-08-12T23:47:00"/>
+	<meta name="classification" content="Working Draft 1"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin-left: 1.25in; margin-right: 1.25in; margin-top: 0.5in; margin-bottom: 0.5in }
+		p { color: #000000; orphans: 2; widows: 2; margin-top: 0.14in; margin-bottom: 0.08in; direction: ltr; background: transparent }
+		p.western { font-family: "Times New Roman", serif; font-size: 10pt; so-language: en-US }
+		p.cjk { font-family: "Times New Roman", serif; font-size: 10pt }
+		p.ctl { font-family: "Times New Roman", serif; font-size: 10pt; so-language: ar-SA }
+		h1 { color: #000000; orphans: 2; widows: 2; margin-top: 0.14in; margin-bottom: 0.04in; direction: ltr; background: transparent; page-break-before: always; page-break-after: avoid }
+		h1.western { font-family: "Arial", sans-serif; font-size: 24pt; so-language: en-US; font-weight: bold }
+		h1.cjk { font-family: "Times New Roman", serif; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Arial", sans-serif; font-size: 10pt; so-language: ar-SA }
+		h2 { color: #000000; orphans: 2; widows: 2; margin-top: 0.22in; margin-bottom: 0in; direction: ltr; background: transparent; page-break-after: avoid }
+		h2.western { font-family: "Arial", sans-serif; font-size: 18pt; so-language: en-US; font-weight: bold }
+		h2.cjk { font-family: "Times New Roman", serif; font-size: 18pt; font-weight: bold }
+		h2.ctl { font-family: "Arial", sans-serif; font-size: 10pt; so-language: ar-SA }
+		h3 { color: #000000; orphans: 2; widows: 2; margin-bottom: 0in; direction: ltr; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-weight: bold }
+		h3.cjk { font-family: "Times New Roman", serif; font-size: 14pt; font-weight: bold }
+		h3.ctl { font-family: "Arial", sans-serif; font-size: 10pt; so-language: ar-SA }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" text="#000000" link="#000080" vlink="#800000" dir="ltr">
+<div title="header"><p style="margin-top: 0in; margin-bottom: 0in">		</p>
+	<p style="margin-top: 0in; margin-bottom: 0.46in"><br/>
+
+	</p>
+</div><p align="center" style="margin-bottom: 0.14in"><font face="Arial, sans-serif"><font size="6" style="font-size: 24pt"><b>Open
+Financial Exchange<br/>
+Specification Changes</b></font></font></p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><i><b>From
+Version 1.0.2 to Version 1.0.3</b></i></font></p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><b>May
+1, 2006</b></font></p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><b>©
+2006 CheckFree Corp., Intuit Inc., Microsoft Corp.  All rights
+reserved</b></font></p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="center" style="margin-bottom: 0in"><font face="Arial, sans-serif"><font size="4" style="font-size: 16pt"><i><b>Revision
+Summary</b></i></font></font></p>
+<p style="margin-bottom: 0.14in; page-break-before: always"><font face="Arial, sans-serif"><font size="5" style="font-size: 18pt"><b>Contents</b></font></font></p>
+<div id="Table of Contents1" dir="ltr"><p style="text-transform: uppercase; margin-top: 0.08in">
+	<b><span lang="en-US">1.</span></b><span style="font-variant: normal"><font size="3" style="font-size: 12pt"><span lang="en-US"><span style="font-weight: normal">	</span></span></font></span><b><span lang="en-US">Revisions	<a href="#__RefHeading___Toc135730549">331</a></span></b></p>
+	<p style="font-variant: small-caps; margin-left: 0.14in; margin-top: 0in; margin-bottom: 0in">
+	<span lang="en-US">1.1</span><span style="font-variant: normal"><font size="3" style="font-size: 12pt"><span lang="en-US">	</span></font></span><span lang="en-US">General
+	Specification Changes	<a href="#__RefHeading___Toc135730550">331</a></span></p>
+	<p style="font-variant: small-caps; margin-left: 0.14in; margin-top: 0in; margin-bottom: 0in">
+	<span lang="en-US">1.2</span><span style="font-variant: normal"><font size="3" style="font-size: 12pt"><span lang="en-US">	</span></font></span><span lang="en-US">Specification
+	Changes for Multi-Factor Authentication	<a href="#__RefHeading___Toc135730551">331</a></span></p>
+	<p style="margin-left: 0.28in; margin-top: 0in; margin-bottom: 0in"><span lang="fr-FR">1.2.1</span><font size="3" style="font-size: 12pt"><span lang="fr-FR">	</span></font><span lang="fr-FR">Chapter
+	2, “Structure”	<a href="#__RefHeading___Toc135730552">331</a></span></p>
+	<p style="margin-left: 0.28in; margin-top: 0in; margin-bottom: 0in"><span lang="fr-FR">1.2.2</span><font size="3" style="font-size: 12pt"><span lang="fr-FR">	</span></font><span lang="fr-FR">Chapter
+	7, “FI Profile”	<a href="#__RefHeading___Toc135730553">332</a></span></p>
+	<p style="margin-left: 0.28in; margin-top: 0in; margin-bottom: 0in"><span lang="en-US">1.2.3</span><font size="3" style="font-size: 12pt"><span lang="en-US">	</span></font><span lang="en-US">Appendix
+	A	<a href="#__RefHeading___Toc135730554">332</a></span></p>
+	<p style="font-variant: small-caps; margin-left: 0.14in; margin-top: 0in; margin-bottom: 0in">
+	<span style="font-variant: normal"><span lang="en-US">1.3</span></span><span style="font-variant: normal"><font size="3" style="font-size: 12pt"><span lang="en-US">	</span></font></span><span style="font-variant: normal"><span lang="en-US">Errata
+	Changes	<a href="#__RefHeading___Toc135730555">332</a></span></span></p>
+</div>
+<p lang="en-US" class="western" style="font-variant: small-caps; margin-bottom: 0in">
+<br/>
+
+</p>
+<h1 class="western"><a name="__RefHeading___Toc135730549"></a><a name="_Ref373058699"></a>
+1.Revisions</h1>
+<p class="western" style="margin-bottom: 0in">This document describes
+the revisions to Open Financial Exchange that occurred between
+version 1.0.2 and version 1.0.3.  These revisions are grouped into
+the following categories:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">General revisions to the
+	specification text</p></li>
+	<li><p style="margin-bottom: 0in">Revisions to the specification
+	text for Multi-Factor Authentication, organized by chapter</p></li>
+	<li><p style="margin-bottom: 0in">OFX 1.0.2 Errata changes to the
+	spec, organized by chapter</p></li>
+</ul>
+<h2 class="western"><a name="__RefHeading___Toc135730550"></a>1.1General
+Specification Changes</h2>
+<ul>
+	<li><p class="western" style="margin-bottom: 0in">Updated
+	VERSION:102 to VERSION:103 throughout the document.</p></li>
+	<li><p class="western">The year in examples is changed from 19xx or
+	2000 to 2005 or 2006.</p></li>
+	<li><p class="western">The USERID in examples is changed from a
+	social security number to a simple name such as &quot;MyUserId&quot;.
+	 (To ensure security and help prevent identity fraud, Financial
+	Institutions are discouraged from using Social Security Number for
+	Customer ID or PIN/Password.)</p></li>
+</ul>
+<h2 class="western"><a name="__RefHeading___Toc135730551"></a>1.2Specification
+Changes for Multi-Factor Authentication</h2>
+<h3 class="western"><a name="__RefHeading___Toc135730552"></a>1.2.1Chapter
+2, “Structure”</h3>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<dl><dd>
+	<table width="588" cellpadding="7" cellspacing="0">
+		<colgroup>
+			<col width="51"/>
+		</colgroup>
+		<colgroup>
+			<col width="124"/>
+			<col width="106"/>
+			<col width="249"/>
+		</colgroup>
+		<tbody>
+			<tr valign="top">
+				<td width="51" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Section</i></font></font></p>
+				</td>
+				<td width="124" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Subject</i></font></font></p>
+				</td>
+				<td width="106" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change
+					Type</i></font></font></p>
+				</td>
+				<td width="249" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change</i></font></font></p>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">MFA
+					</font></font>
+					</p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					verbiage</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Verbiage
+					stating that MFA is added to Signon message set functionality</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">MFA
+					description</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					section</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					section entitled <i>Multi-Factor Authentication</i></font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;SONRQ&gt;</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					tags</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					tags added to Signon Request &lt;SONRQ&gt;: <i>CLIENTUID,
+					USERCRED1, USERCRED2, AUTHTOKEN, ACCESSKEY, MFACHALLENGEANSWER</i></font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1.3</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;SONRS&gt;</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					tag</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					tag added to Signon Response &lt;SONRS&gt;: <i>ACCESSKEY</i></font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					error codes</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					error codes added to &lt;SONRS&gt; Status Code table</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					request/response</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					section</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					section added for MFA request/response &lt;MFACHALLENGERQ&gt;,
+					&lt;MFACHALLENGERS&gt;</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.6</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					examples</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					examples for MFA added</font></font></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</dd></dl>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<p class="western"><br/>
+<br/>
+
+</p>
+<p class="western"><br/>
+<br/>
+
+</p>
+<p class="western"><br/>
+<br/>
+
+</p>
+<h3 class="western"><a name="__RefHeading___Toc135730553"></a>1.2.2Chapter
+7, “FI Profile”</h3>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<dl><dd>
+	<table width="588" cellpadding="7" cellspacing="0">
+		<colgroup>
+			<col width="51"/>
+		</colgroup>
+		<colgroup>
+			<col width="124"/>
+			<col width="106"/>
+		</colgroup>
+		<colgroup>
+			<col width="249"/>
+		</colgroup>
+		<tbody>
+			<tr valign="top">
+				<td width="51" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Section</i></font></font></p>
+				</td>
+				<td width="124" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Subject</i></font></font></p>
+				</td>
+				<td width="106" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change
+					Type</i></font></font></p>
+				</td>
+				<td width="249" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change</i></font></font></p>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">7.2.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Signon
+					realms</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">New
+					tags added to &lt;SIGNONINFO&gt; aggregate: <i>USERCRED1LABEL,
+					USERCRED2LABEL, CLIENTUIDREQ, AUTHTOKENFIRST, AUTHTOKENLABEL,
+					AUTHTOKENINFOURL, MFACHALLENGESUPT, MFACHALLENGEFIRST</i></font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">7.2.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">CHGPINFIRST
+					in signon realm</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Change</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Text
+					was added to state that if the profile tag MFACHALLENGEFIRST is
+					‘Y’, the pin change request should be sent immediately after
+					the session containing MFACHALLENGE authentication.</font></font></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</dd></dl>
+<h3 class="western"><a name="__RefHeading___Toc135730554"></a>1.2.3Appendix
+A</h3>
+<p class="western" style="margin-bottom: 0in"><br/>
+
+</p>
+<dl><dd>
+	<table width="599" cellpadding="7" cellspacing="0">
+		<col width="136"/>
+		<col width="126"/>
+		<col width="293"/>
+		<tbody>
+			<tr valign="top">
+				<td width="136" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Subject</i></font></font></p>
+				</td>
+				<td width="126" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change
+					Type</i></font></font></p>
+				</td>
+				<td width="293" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change</i></font></font></p>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 3000</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+					credentials are correct, but further authentication required. 
+					Client should send &lt;MFACHALLENGERQ&gt;.  (ERROR)</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 3001</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;MFACHALLENGEANSWER&gt;
+					contains invalid information. (ERROR)</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 15510</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">CLIENTUID
+					error.  User must register the Client UID.  (ERROR)</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 15511</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+					should contact financial institution.  (ERROR)</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 15512</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">User
+					needs to contact financial institution to obtain AUTHTOKEN.
+					Client should send it in the next request.  (ERROR)</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="136" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Status
+					code 15513</font></font></p>
+				</td>
+				<td width="126" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Addition</font></font></p>
+				</td>
+				<td width="293" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">AUTHTOKEN
+					invalid.  (ERROR)</font></font></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</dd></dl>
+<p class="western"><br/>
+<br/>
+
+</p>
+<h2 class="western"><a name="__RefHeading___Toc135730555"></a>1.3Errata
+Changes</h2>
+<p class="western">The 1.0.2 Errata was incorporated into OFX 1.0.3,
+causing the following changes.</p>
+<dl><dd>
+	<table width="588" cellpadding="7" cellspacing="0" style="page-break-before: always">
+		<colgroup>
+			<col width="51"/>
+		</colgroup>
+		<colgroup>
+			<col width="124"/>
+			<col width="106"/>
+			<col width="249"/>
+		</colgroup>
+		<tbody>
+			<tr valign="top">
+				<td width="51" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Section</i></font></font></p>
+				</td>
+				<td width="124" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Subject</i></font></font></p>
+				</td>
+				<td width="106" bgcolor="#000000" style="background: #000000; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding: 0in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Change
+					Type</i></font></font></p>
+				</td>
+				<td width="249" bgcolor="#000000" style="background: #000000; border: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt"><i>Chang</i></font></font></p>
+				</td>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.2
+					</font></font>
+					</p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">OFX
+					headers</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">All
+					OFX headers are required. NONE should be returned if client or
+					server does not make use of an individual tag, e.g.,
+					COMPRESSION:NONE, OLDFILEUID:NONE</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">SONRQ</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NOTE:
+					A client should use the anonymous form of USERID and USERPASS on
+					those occasions when a server need not validate the SONRQ, i.e.,
+					PROFRQ, ENROLLRQ. </font></font>
+					</p>
+					<p style="margin-top: 0.08in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					anonymous USERID or USERPASS value is left aligned and padded
+					with 0 to a length of 32 characters:
+					anonymous00000000000000000000000</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.5.1.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">USERKEY</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					must process a GENUSERKEY element in a SONRQ. However, a server
+					may decide USERKEY does not afford sufficient security and may
+					optionally not return a USERKEY in the SONRS.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">2.3
+					-<br/>
+2.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">SGML
+					compliance and Custom Tags</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in">
+					<ul><li><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+						<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Aggregates
+						must have end tags and cannot have values.</font></font></p></li>
+						<li><p style="margin-top: 0in; margin-bottom: 0in; page-break-after: avoid">
+						<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Elements
+						must have values (cannot contain only whitespace).</font></font></p></li>
+						<li><p style="margin-top: 0in; margin-bottom: 0in; page-break-after: avoid">
+						<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+						DTD defines the order and usage of official OFX tags. </font></font>
+						</p></li>
+						<li><p style="margin-top: 0in; margin-bottom: 0in; page-break-after: avoid">
+						<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Custom
+						tags must contain a dot and follow the xxx.yyy format. These
+						tags are ignored if they are not recognized.</font></font></p></li>
+						<li><p style="margin-top: 0in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Tags
+						without a dot are reserved for OFX use. </font></font>
+						</p></li>
+					</ul>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">3.2.8</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Dates
+					and Times</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Vaild
+					gmt offset values are in the range from –12 to +12 for whole
+					number offsets. Formatting is +12.00 to -12.00 for  fractional
+					offsets, plus sign may be omitted.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">3.2.9</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Amount</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Trailing
+					and leading spaces should be stripped. Number format uses a
+					leading sign. Negative number format uses a minus sign (-).</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">6.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Data
+					Synchronization Specifics</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					should return TOKEN=-1 in the event they must respond with an
+					error, but there is no XXXTRNRS wrapper inside the SYNCXXXRS
+					wrapper.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">6.10</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Lite
+					synchronization and Refresh</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Lite
+					synchronization servers do not support Refresh. TOKEN=0 is not
+					the same as Refresh synchronization. Therefore, clients should
+					not send Refresh to a lite synchronization server. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">6.10.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">OLDFILEUID
+					</font></font>
+					</p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Change</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clients
+					must now include the OLDFILEUID and NEWFILEUID headers and may
+					no longer leave the OLDFILEUID and NEWFILEUID values
+					blank.<br/>
+Clients should now set the header value to NONE,
+					e.g. OLDFILEUID:NONE, where previously they would have omitted
+					the header or left it blank.<br/>
+The previous text “If
+					OLDFILEUID is absent, the client is not requesting file based
+					error recovery..” <br/>
+becomes “If OLDFILEUID is set to
+					‘NONE’ the client is not requesting file based error
+					recovery …”.<br/>
+NOTE: Clients should set OLDFILEUID to
+					zero (OLDFILEUID:0) to request file based error recovery on its
+					first connection to a server.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">6.10.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NEWFILEUID</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">If
+					NEWFILEUID matches a previous request file the client is
+					requesting error recovery. The request file identified by the
+					NEWFILEUID must contain exactly the same set of transactions as
+					the previous request file. Servers can reject the file if it
+					contains new or modified transactions.</font></font></p>
+					<p style="margin-top: 0.08in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NOTE:
+					Clients should disallow PINCH transactions during error
+					recovery.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">7.1.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Client
+					Signon for Profile Requests</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NOTE:
+					USERID and/or USERPASS may be set to lower case &quot;anonymous&quot;
+					followed by 23 zeroes.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">8.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Enrollment
+					and Password Acquisition</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NOTE:
+					USERID and/or USERPASS may be set to lower case &quot;anonymous&quot;
+					followed by 23 zeroes.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">8.6.1.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Misspelling</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Correction</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">S<u><b>C</b></u>VCADD,
+					etc. changed to SVCADD…</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">8.7</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Name
+					and Address Changes</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Modified
+					and unmodified elements are submitted in a change user
+					information request CHGUSERINFORQ. The lack of inclusion of a
+					field in a change user request when that field was previously
+					populated implies its deletion on the server.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">10.2.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Due
+					dates of payments can be adjusted</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					can change the due date of a spawned payment if it falls on a
+					non-processing day.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">11.12.2.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">INTRASYNCRS</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">INTRASYNC
+					Response contain only intrabank transfers where the BANKACCTFROM
+					of the Sync response matches the BANKACCTFROM of the INTRARS.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">11.12.3.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">INTERSYNCRS</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">INTERSYNC
+					Response contain only interbank transfers where the BANKACCTFROM
+					of the Sync response matches the BANKACCTFROM of the INTERRS.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">11.3.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">CCACCTFROM</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">CCACCTFROM
+					can be used even if the CCMSGSET is not supported.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">11.7.1.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">INTRARS</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					DTD does not require either DTXFERPRJ or DTPOSTED in an
+					interbank transfer response. The spec is incorrect. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">11.10.1.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">RECINTRARS</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					SRVRTID included in the INTRARS should be set to the same value
+					as the RECSRVRTID.<br/>
+NOTE this is the response to the
+					recurring model only. Servers must still generate a INTRARS for
+					each instance of the recurring transfer.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.4.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Implicit
+					requests</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					should generate explicit responses to implicit requests. In
+					other words, implicit payee additions or modifications resulting
+					from a new or changed payment should generate explicit payee add
+					or payee change responses from the server.<br/>
+Such explicit
+					responses are only returned to the client in a SNYC response.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.2.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Identifying
+					Payees</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					must always assign PayeeLstIDs to payees. Once PayeeLstIDs have
+					been assigned, clients must always send the PAYEELSTID, even if
+					a Payee has both a PAYEEID and a PAYEELSTID.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.5.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payee
+					Info</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">The
+					DTD requires either PAYEE or PAYEEID inside PMTINFO. The spec
+					incorrectly says that both are optional. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.6.1.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payment
+					Discussion </font></font>
+					</p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payment
+					transactions that also contain an implicit payee transaction
+					(change or add) are considered a single unit of work.<br/>
+A
+					failure of either causes a failure in both. This is true for
+					payment creation, modification and deletion transactions.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.6.2.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payment
+					Modification Discussion</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Implicit
+					payee changes contained in a payment modification transaction
+					affect the individual payment. The changes are also propagated
+					to the server’s payee list and affect subsequent payments to
+					that payee.</font></font></p>
+					<p style="margin-top: 0.08in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">NOTE:
+					Explicit payee changes are not propagated to pending payments.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.7.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Recurring
+					Payment Modification</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clients
+					can modify both elements in the RECURRINST aggregate, i.e.,
+					NINSTS and FREQ. Clients should send the original number of
+					payments scheduled if there is no change. If there is a change
+					in the number of payments scheduled clients should send the new
+					number of payments. </font></font>
+					</p>
+					<p style="margin-top: 0.08in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clients
+					must account for pending payments and the server’s ModPending
+					flag. This can result in implicit payment deletions.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.9.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payee
+					Modification</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Explicit
+					payee modifications are made in the server’s payee list. They
+					are not propagated to already created pending payments.
+					Recurring Payments created after the Payee modification will use
+					the updated information from the server’s payee list.<br/>
+Implicit
+					payee modifications contained within a payment creation,
+					modification or deletion request are propagated to the payment
+					and to the server’s payee list.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.9.3</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Payee
+					Deletion</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clients
+					send the PAYEELSTID in the PAYEEDELRQ aggregate to delete an
+					entire Payee.<br/>
+To modify or delete specific payee
+					information, clients should use the PAYEELSTID and the PAYACCT
+					elements in the PAYEEMODRQ. </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">12.11.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;PROCDAYSOFF&gt;</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">&lt;PROCDAYSOFF&gt;
+					indicate days to exclude when calculating dates that utilize
+					other bill payment bits, such as &lt;DAYSWITH&gt; and
+					&lt;DFLTDAYSTOPAY&gt; values.  </font></font>
+					</p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13.3.</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Signs</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; margin-bottom: 0in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">UNITS
+					and TOTALS are signed from the perspective of the user (positive
+					for SELLs, negative for BUYs). All other Investment transaction
+					amounts are always positively signed. In other words UNITPRICE,
+					COMMISSION, FEES, TAXES, WITHHOLDING, LOAD, MARKUP and MARKDOWN
+					are always positive numbers. <br/>
+A positive COMMISSION, TAXES,
+					LOAD, WITHHOLDING, or FEE increased the negatively signed TOTAL
+					on a BUYSTOCK and decreased the positively signed TOTAL on a
+					SELLSTOCK.<br/>
+MARKUP and MARKDOWN increase or decrease,
+					respectively, the UNITPRICE.</font></font></p>
+					<p style="margin-top: 0.08in; page-break-after: avoid"><font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Servers
+					should return corrections to investment buys or sells as the
+					opposite transaction type, e.g., a correction to a buy is
+					returned as a sell.<br/>
+A correction to MARGININTEREST or
+					RETOFCAP is returned as an INVEXPENSE.</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13.6.1</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Specifying
+					the Investment Account</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Brokers
+					should use the domain name of their company’s URL as the
+					BROKERID, e.g., <br/>
+If 			URL=www.broker.com <br/>
+then
+						BROKERID=broker.com</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: none; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13.9.2.4.4</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+					Aggregate</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: none; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">REINVEST
+					is a single transaction that contains both income and an
+					investment transaction. If servers can’t track this as a
+					single transaction they should return an INCOME transaction and
+					an INVTRAN.<br/>
+TOTAL and UNITS are signed as for an investment
+					buy. Corrections to a REINVEST are signed as for an investment
+					sell..</font></font></p>
+				</td>
+			</tr>
+			<tr valign="top">
+				<td width="51" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0in 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">13.9.2.6.2</font></font></p>
+				</td>
+				<td width="124" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Investment
+					Positions</font></font></p>
+				</td>
+				<td width="106" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">Clarification</font></font></p>
+				</td>
+				<td width="249" style="border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0in; padding-left: 0in; padding-right: 0.08in"><p style="margin-top: 0.08in; page-break-after: avoid">
+					<font face="Arial, sans-serif"><font size="1" style="font-size: 8pt">UNITSSTREET
+					and UNITSUSER are incorrectly specified as <i>quantity. </i>They
+					must be positive whole numbers <i>A-32</i> (INTTYPE as per the
+					DTD).</font></font></p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</dd></dl>
+<p class="western"><br/>
+<br/>
+
+</p>
+<div title="footer"><p lang="en-US" style="margin-top: 0.46in; margin-bottom: 0in">
+	<span id="Frame1" dir="ltr" style="position: absolute; top: 0.1in; left: 0in; width: 0.08in; border: none; padding: 0in; background: #ffffff"><p style="margin-bottom: 0in">
+		<span style="background: #c0c0c0"><sdfield type=PAGE subtype=RANDOM format=PAGE>336</sdfield></span></p>
+	</span>
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkoAAAABCAYAAAAhI4EfAAAAHklEQVRIie3BQQEAMAgAoTPX7J/L9zoAU231AgDgc1HVAHnFxHABAAAAAElFTkSuQmCC" name="DrawObject1" alt="DrawObject1" align="left" hspace="12" width="586" height="1"/>
+<br/>
+
+	</p>
+	<p style="margin-top: 0in; margin-bottom: 0in"><font size="1" style="font-size: 8pt">Open
+	Financial Exchange Specification 1.0.3		</font><font size="1" style="font-size: 8pt">5/1/06</font></p>
+	<p style="margin-top: 0in; margin-bottom: 0in">		</p>
+</div>
+</body>
+</html>
