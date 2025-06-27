@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+	Open Financial Exchange Specification (c)1996-2003 ("Specification") by all of its publishers: 
+	CheckFree Corp., Intuit Inc., and Microsoft Corporation. All rights reserved. 
+
+	Revision History:
+
+	Version	Date    	Editor Email Addr    		    Short Description
+    Tax2.0  2019-09-30  clyde.e.cutting@wellsfargo.com  Introduction of Form 2439 for TY19.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ofx="http://ofx.net/types/2003/04" targetNamespace="http://ofx.net/types/2003/04" elementFormDefault="unqualified">
+	<xsd:include schemaLocation="OFXTax_Common.xsd"/>
+	<xsd:complexType name="AbstractTaxForm2439Type" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="SRVRTID" type="ofx:ServerIdType"/>
+			<xsd:element name="TAXYEAR" type="ofx:YearType"/>
+			<xsd:element name="VOID" type="ofx:BooleanType" minOccurs="0"/>
+			<xsd:element name="CORRECTED" type="ofx:BooleanType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Abstract2439RecipientAddressType" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="ADDR1" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="ADDR2" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="ADDR3" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="CITY" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="STATE" type="ofx:StateType" minOccurs="0"/>
+			<xsd:element name="POSTALCODE" type="ofx:ZipType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Shareholder2439AddressType">
+		<xsd:complexContent>
+			<xsd:extension base="ofx:Abstract2439RecipientAddressType">
+				<xsd:sequence>
+					<xsd:element name="SHAREHOLDERNAME1" type="ofx:GenericNameType"/>
+					<xsd:element name="SHAREHOLDERNAME2" type="ofx:GenericNameType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Abstract2439IssuerAddressType" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="ADDR1" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="ADDR2" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="ADDR3" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="CITY" type="ofx:AddressType" minOccurs="0"/>
+			<xsd:element name="STATE" type="ofx:StateType" minOccurs="0"/>
+			<xsd:element name="POSTALCODE" type="ofx:ZipType" minOccurs="0"/>
+			<xsd:element name="COUNTRYSTRING" type="ofx:CountryStringType" minOccurs="0"/>
+			<xsd:element name="PHONE" type="ofx:PhoneType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Corporation2439AddressType">
+		<xsd:complexContent>
+			<xsd:extension base="ofx:Abstract2439IssuerAddressType">
+				<xsd:sequence>
+					<xsd:element name="CORPORATIONNAME1" type="ofx:GenericNameType"/>
+					<xsd:element name="CORPORATIONNAME2" type="ofx:GenericNameType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Tax2439_V100">
+		<xsd:annotation>
+			<xsd:documentation>Form 2439 - Notice to Shareholder of Undistributed Long-Term Capital Gains</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="ofx:AbstractTaxForm2439Type">
+				<xsd:sequence>
+					<xsd:element name="FISCALYEARBEGIN" type="ofx:DateTimeType" minOccurs="0"/>
+					<xsd:element name="FISCALYEAREND" type="ofx:DateTimeType" minOccurs="0"/>
+					<xsd:element name="RICREITADDR" type="ofx:Corporation2439AddressType" minOccurs="0"/>
+					<xsd:element name="SHAREHOLDERADDR" type="ofx:Shareholder2439AddressType" minOccurs="0"/>
+					<xsd:element name="RICREITID" type="ofx:GenericNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Identification number of RIC or REIT</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SHAREHOLDERID" type="ofx:IdType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Shareholder’s identifying number</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="UNDISTLTCG" type="ofx:AmountType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Box 1a. Total undistributed long-term capital gains</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="UNRECAP1250" type="ofx:AmountType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Box 1b. Unrecaptured section 1250 gain</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="SEC1202GAIN" type="ofx:AmountType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Box 1c. Section 1202 gain</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="COLLECTIBLESGAIN" type="ofx:AmountType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Box 1d. Collectibles (28%) gain</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="TAXPAID" type="ofx:AmountType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Box 2. Tax paid by the RIC or REIT on the box 1a gains</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>
